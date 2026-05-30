@@ -1,0 +1,12 @@
+math - for math utilities 
+
+re - for regular expressions 
+json - to work with JSON
+datetime - to work with date and time 
+sqlite3 - to use sqlite
+os - for operating system utilities 
+random - for random number generation 
+statistics - for statistical utilities 
+requests - to perform network requests 
+http - to create HTTP servers
+urllib to manage URLS
