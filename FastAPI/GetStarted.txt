@@ -1,0 +1,24 @@
+FASTApi
+- is a morden lightweight web framework used for building apis with python 3.8+
+- designed to fast code highly efficient in production
+- used to build a backend 
+
+- if you want to isolate the project you need to create the environment 
+
+steps -
+
+    1. python -m venv --name--
+    --activate it 
+    - source myenv/bin/activate
+    - deactivate  -to exit from environment
+
+    2. pip3 install fastapi uvicorn
+    -- uvicorn is a web server 
+
+    3. create main.py file and write the code for your api
+    run the file 
+    - uvicorn main:app 
+    
+http://127.0.0.1:8000/docs for swagger UI 
+
+
