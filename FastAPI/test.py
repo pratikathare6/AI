@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 from models import Product
+from database import session,engine
+import database_model_sqlalchemy   #import sqlalchamey model
+
 app = FastAPI()
+
+
+database_model_sqlalchemy.Base.metadata.create_all(bind=engine) #create the table in database
+
 
 @app.get('/') # decorator for the path operation')
 def greet():
@@ -44,3 +51,13 @@ def update_product(id: int ,updated_product:Product):
             return {"message":"Updated Sucessfully"}
     
     return {"message": "Product not found"}
+
+
+@app.delete('/delete-product')
+def delete_product(id:int):
+    for i in range(len(products)):
+        if products[i].id == id:
+            del products[i]
+            return {"messgae":"product deleted.."}
+        
+    return {"message":"Product not found"}

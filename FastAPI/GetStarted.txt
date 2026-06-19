@@ -7,7 +7,7 @@ FASTApi
 
 steps -
 
-    1. python -m venv --name--
+    1. python3 -m venv --name--
     --activate it 
     - source myenv/bin/activate
     - deactivate  -to exit from environment
@@ -22,3 +22,24 @@ steps -
 http://127.0.0.1:8000/docs for swagger UI 
 
 
+
+2. To connect with the database 
+ for this we need 2 things SQLALCHEMY and postgresql which is the database 
+-SQLALCHEMY is a database tollkit and ORM
+that translates the python code to sql queries 
+
+the flow = 
+
+                FastAPI receives JSON
+                ↓
+                Pydantic validates
+                ↓
+                SQLAlchemy creates object
+                ↓
+                Converts to SQL
+                ↓
+                PostgreSQL stores permanently
+
+
+steps- 
+        1. pip3 install sqlalchemy psycopg2 --> driver 
