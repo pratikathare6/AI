@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Cafe Bliss",
+    "price": -180,
+    "category": "Cafe",
+    "is_available": true,
+    "description": "A cozy cafe serving coffee, snacks, and light meals."
+  },
+  {
+    "id": 2,
+    "name": "City Mart",
+    "price": "250",
+    "category": "Grocery",
+    "is_available": true,
+    "description": "A neighborhood store with daily essentials and packaged goods."
+  },
+  {
+    "id": 3,
+    "name": "Sunrise Clinic",
+    "price": 500,
+    "category": "Healthcare",
+    "is_available": false,
+    "description": "A small clinic offering basic consultation services."
+  },
+  {
+    "id": 4,
+    "name": "Green Valley Apartments",
+    "price": "1200",
+    "category": "Real Estate",
+    "is_available": true,
+    "description": "Residential apartments with modern amenities."
+  },
+  {
+    "id": 5,
+    "name": "Blue Pearl Restaurant",
+    "price": 350,
+    "category": "Restaurant",
+    "is_available": true,
+    "description": "A family restaurant with a variety of meals."
+  },
+  {
+    "id": 6,
+    "name": "Om Arcade",
+    "price": 900,
+    "category": "Shopping",
+    "is_available": "yes",
+    "description": "A commercial space with multiple retail outlets."
+  },
+  {
+    "id": 7,
+    "name": "River View Gym",
+    "price": 600,
+    "category": "Fitness",
+    "is_available": false,
+    "description": "A fitness center with modern workout equipment."
+  },
+  {
+    "id": 8,
+    "name": "Parkside Salon",
+    "price": "450",
+    "category": "Salon",
+    "is_available": true,
+    "description": "A salon offering hair, beauty, and grooming services."
+  },
+  {
+    "id": 9,
+    "name": "Tech Point",
+    "price": 1500,
+    "category": "Electronics",
+    "is_available": "false",
+    "description": "A store selling gadgets, accessories, and devices."
+  },
+  {
+    "id": 10,
+    "name": "Lakeview Hotel",
+    "price": 2200,
+    "category": "Hotel",
+    "is_available": true,
+    "description": "A comfortable hotel with lodging and dining services."
+  }
+]
