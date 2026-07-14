@@ -1,0 +1,18 @@
+# This file tells Git to ignore certain files that we don’t want it to ever touch
+# .env is a common pattern where you store configuration variables for your app.
+*.env
+
+# Compiled source code -> Ignore them all
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# OS generated files
+#####################
+.DS_Store*
+ehthum
+Icon?
+Thumbs.db
