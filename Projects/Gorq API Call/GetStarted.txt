@@ -1,0 +1,8 @@
+
+1. pip3 install openai
+
+2. create dotenv for api key 
+
+3. base_url="https://api.groq.com/openai/v1",
+
+4.  model = 'openai/gpt-oss-120b'
