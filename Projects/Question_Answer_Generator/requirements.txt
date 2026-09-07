@@ -1,0 +1,15 @@
+langchain
+langchain-community
+langchain-core
+pypdf
+aiofiles
+fastapi
+uvicorn
+jinja2
+python-multipart
+pyPDF2
+faiss-cpu
+python-dotenv
+langchain-groq
+tiktoken
+sentence-transformers

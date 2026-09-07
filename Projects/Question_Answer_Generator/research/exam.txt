@@ -1,0 +1,81 @@
+## RESTful API & HTTP – Exam‑Prep Guide  
+
+The following questions are grouped by topic and are designed to test recall, application, and deeper understanding of REST principles, HTTP methods, status codes, and best‑practice design.  
+Duplicate items from the source material have been removed, and each question is phrased clearly in English.  Answers are included for self‑check but can be omitted if you prefer a blind‑test format.
+
+---
+
+### 1. Conceptual & Definition  
+
+| # | Question | Suggested Answer |
+|---|----------|------------------|
+| 1 | What does **REST** stand for, and what is its primary design principle? | Representational State Transfer – a stateless, client‑server architecture that uses standard HTTP methods and status codes. |
+| 2 | In a RESTful API, what is a **resource** and how is it uniquely identified? | Anything that can be addressed (user, product, document, etc.) identified by a unique URI. |
+| 3 | What is meant by a **representation** of a resource? | The format in which the resource’s state is transferred (e.g., JSON, XML). |
+| 4 | Explain **stateless communication** in the context of REST. | Each request contains all information needed; the server does not keep any session state between requests. |
+| 5 | What are the five classes of HTTP status codes and what does each class represent? | 1xx – Informational, 2xx – Success, 3xx – Redirection, 4xx – Client Error, 5xx – Server Error. |
+| 6 | Why should an API return an error status code when an operation fails? | To inform the client of the failure and allow it to handle the error appropriately. |
+
+---
+
+### 2. HTTP Methods & Idempotence  
+
+| # | Question | Suggested Answer |
+|---|----------|------------------|
+| 7 | List the most common HTTP methods used in REST and state whether each is **idempotent**. | GET – Yes; POST – No; PUT – Yes; PATCH – Yes; DELETE – Yes |
+| 8 | Define **idempotence** and give an example of how it applies to the `PUT` method. | A method is idempotent if multiple identical requests produce the same result. `PUT /users/123` with the same body always results in the same user state. |
+| 9 | Which HTTP methods are considered **safe**, and what does “safe” mean? | GET, HEAD, OPTIONS – they should not modify server data. |
+| 10 | Why is `POST` generally **not** idempotent? | Because each POST may create a new resource or have side‑effects that differ with each call. |
+| 11 | If a client mistakenly sends a `POST` to a read‑only endpoint, which status code should the server return? | 405 Method Not Allowed |
+
+---
+
+### 3. HTTP Status Codes – Meaning & Use Cases  
+
+| # | Code | Category | Typical Use‑Case | Suggested Question |
+|---|------|----------|------------------|--------------------|
+| 12 | 200 | Success | Successful GET/PUT/DELETE that returns a body | What does a 200 OK response indicate? |
+| 13 | 201 | Success | Successful POST that created a resource | When should a server return 201? |
+| 14 | 204 | Success | Successful DELETE or PUT with no body to return | What does 204 No Content mean? |
+| 15 | 301 | Redirection | Resource permanently moved to a new URL | When should a server use 301 Moved Permanently? |
+| 16 | 302 | Redirection | Temporary redirect to a different URL | When is 302 Found appropriate? |
+| 17 | 304 | Redirection | Resource not modified – used with conditional GET | What triggers a 304 Not Modified? |
+| 18 | 400 | Client Error | Malformed request (bad syntax or missing params) | When is 400 Bad Request used? |
+| 19 | 401 | Client Error | Authentication required or failed | What does 401 Unauthorized mean? |
+| 20 | 403 | Client Error | Authenticated but lacks permission | How does 403 Forbidden differ from 401? |
+| 21 | 404 | Client Error | Resource not found | When should a server return 404? |
+| 22 | 405 | Client Error | Method not allowed on the requested resource | What does 405 Method Not Allowed indicate? |
+| 23 | 409 | Client Error | Conflict with current state (duplicate entry) | When would a server return 409 Conflict? |
+| 24 | 422 | Client Error | Semantic error – e.g., duplicate email on create | Why use 422 instead of 400? |
+| 25 | 500 | Server Error | Unexpected server error | When is 500 Internal Server Error appropriate? |
+| 26 | 501 | Server Error | Method not implemented on the server | When should a server return 501? |
+| 27 | 503 | Server Error | Service temporarily unavailable | What status code signals maintenance? |
+
+**Sample Questions (derived from the table above)**  
+
+| # | Question |
+|---|----------|
+| 28 | What does a **204 No Content** response indicate, and when is it appropriate to use? |
+| 29 | When should a server respond with **301 Moved Permanently** instead of **302 Found**? |
+| 30 | Explain the use of **304 Not Modified**. In what scenario would a client receive this status? |
+| 31 | What is the difference between **403 Forbidden** and **401 Unauthorized**? |
+| 32 | In which situation would a server return **409 Conflict**? |
+| 33 | Why would a server return **422 Unprocessable Entity** instead of **400 Bad Request**? |
+| 34 | When a client attempts a `POST` to a read‑only endpoint, which status code should the server return? |
+
+---
+
+### 4. Application & Scenario Questions  
+
+| # | Question | Suggested Answer |
+|---|----------|------------------|
+| 35 | A client wants to update only the `email` field of a user. Which method should they use, and why? | `PATCH` – it partially updates the resource, sending only the modified field. |
+| 36 | If a client repeatedly sends the same `DELETE /items/45` request, what will the server do and why? | It will delete the item on the first call and then return 404 on subsequent calls because the resource no longer exists; DELETE is idempotent. |
+| 37 | Which HTTP method would you use to retrieve a list of products without changing any server state? | `GET` – safe and idempotent. |
+| 38 | A client sends a malformed JSON body in a POST request. Which status code should the server respond with? | 400 Bad Request (malformed request body). |
+| 39 | How can a client prevent unnecessary data transfer when checking if a resource has changed? | Use a conditional GET with headers like `If-Modified-Since` or `If-None-Match`; the server can respond with 304 Not Modified. |
+| 40 | A user tries to create a new account with an email that already exists. What status code is appropriate? | 422 Unprocessable Entity – semantic error (duplicate email). |
+| 41 | A client attempts to `DELETE /orders/123` but order `123` has already been shipped and is linked to a shipment record. Which status code is most appropriate? | 409 Conflict. |
+| 42 | You receive a `405 Method Not Allowed` error when a client uses `PUT` on `/products/456`. What might be the cause, and how would you fix it? | The endpoint does not support `PUT`; either add support for `PUT` or instruct the client to use `PATCH` if partial update is intended. |
+| 43 | During a maintenance window, your API is temporarily down. What status code should you return to clients, and what header can you include to inform them when the service will be available again? | 503 Service Unavailable with a `Retry-After` header. |
+| 44 | Design a simple RESTful endpoint for managing a collection of **users**. Specify the resource URI, HTTP methods you would expose, and indicate which methods are idempotent and which are safe. Provide example status codes for successful and error scenarios. | **URI**: `/users` (collection) & `/users/{id}` (single resource) <br>**Methods**: <br>• GET `/users` – list (Safe & Idempotent) – 200 <br>• POST `/users` – create (Not Idempotent) – 201 <br>• GET `/users/{id}` – read (Safe & Idempotent) – 200 <br>• PUT `/
