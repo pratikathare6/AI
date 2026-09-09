@@ -1,0 +1,21 @@
+langchain
+langchain-community
+langchain-core  
+langchain-groq
+requests
+python-dotenv
+langchainhub
+langsmith
+
+#search tool
+tavily-python
+
+#python UI
+streamlit
+
+#web scraping
+beautifulsoup4
+readability-lxml
+trafilatura
+requests
+lxml
