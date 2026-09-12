@@ -13,9 +13,6 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
-# ======================================
-# Your existing code (same as before)
-# ======================================
 
 # Search tool
 search_tool = TavilySearchResults(max_results=3)
@@ -42,7 +39,7 @@ weather_agent = create_agent(
 )
 
 # ======================================
-# Streamlit UI (Simple)
+# Streamlit UI
 # ======================================
 
 st.set_page_config(page_title="Weather Agent", page_icon="🌤️")
